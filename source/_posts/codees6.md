@@ -12,7 +12,7 @@ toc: true
 ## （笔记）非常有用的 48 个 JavaScript 代码片段
 
 ---
-> 该项目来自于 Github 用户 **Chalarangelo**，目前已在 **Github** 上获得了 5000 多Star，精心收集了多达 48 个有用的 **JavaScript** 代码片段，该用户的代码可以让程序员在 30 秒甚至更少的时间内理解这些经常用到的基础算法，来看看这些 JavaScript 代码都传达出了什么吧！
+ 该项目来自于 Github 用户 **Chalarangelo**，目前已在 **Github** 上获得了 5000 多Star，精心收集了多达 48 个有用的 **JavaScript** 代码片段，该用户的代码可以让程序员在 30 秒甚至更少的时间内理解这些经常用到的基础算法，来看看这些 JavaScript 代码都传达出了什么吧！
 
 ###### 转自 --- [前端日刊](https://funteas.com/topic/5a89d474affaa6341c277e01)
   <!-- more -->
