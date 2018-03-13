@@ -34,4 +34,12 @@
   <%- css('css/style') %>
   <%- css('plugin/bganimation/bg') %>
   <%- partial('google-analytics') %>
+
+  <% if (page.layout == 'post'){ %>
+    <%- css('plugin/toc/toc.css') %>
+    <%- css('plugin/gitment/gitment.default.css') %>
+    <%- js('plugin/gitment/gitment.browser.js') %>
+    <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> -->
+  <% } %>
 </head>

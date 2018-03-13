@@ -203,3 +203,12 @@ git branch --set-upstream master origin/master
 
 git branch --set-upstream develop origin/develop
 ```
+### 常见错误
+**（遇到了就更新）**
+#### Pathspec is in submodule
+`Pathspec is in submodule` :[google出来](https://stackoverflow.com/questions/24472596/git-fatal-pathspec-is-in-submodule)，大致原因好像是在主题项目提交之前因为删除了子项目的`.git`目录，git会自己添加一个submodule一样的模块，所以操作的时候找不到这个模块。
+**解决方法**:删除再添加
+```
+git rm --cached directory
+git add directory
+```
