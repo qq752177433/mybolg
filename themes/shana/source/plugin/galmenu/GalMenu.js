@@ -28,8 +28,8 @@
                         $(".circle").removeClass("open");
                         $("#overlay").hide();
                         $(".GalMenu").delay(400).hide(0);
-                        audio.pause();
-                        audio.currentTime = 0
+                        //audio.pause();
+                        //audio.currentTime = 0
                     }
                 });
                 $this.on('contextmenu',
@@ -74,12 +74,12 @@
                         $(".circle").removeClass("open");
                         $("#overlay").hide();
                         $(".GalMenu").delay(400).hide(0);
-                        audio.pause();
-                        audio.currentTime = 0
+                        //audio.pause();
+                        //audio.currentTime = 0
                     } else {
                         $(".circle").addClass("open");
                         $("#overlay,.GalMenu").show();
-                        audio.play()
+                        //audio.play()
                     }
                 })
             })

@@ -1,139 +1,139 @@
 <% if (!index && post.toc){ %>
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="visibility:hidden">
-      <span class="btn-bg"></span>
-      <span class="btn-text">文章导航</span>
-    </p>
-    <div id="toc-article" class="toc-article wow slideInRight animated" style="visibility:hidden">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-      <%- toc(post.content) %>
-    </div>
-    <script type="text/javascript">
-      if (window.innerWidth > 960) {
-        showToc()
-      } else {
-        showBtn()
-      }
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="visibility:hidden">
+    <span class="btn-bg"></span>
+    <span class="btn-text">文章导航</span>
+  </p>
+  <div id="toc-article" class="toc-article" style="visibility:hidden">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+    <strong class="toc-title">文章目录</strong>
+    <%- toc(post.content) %>
+  </div>
+  <% } %>
+    <article id="<%= post.layout %>-<%= post.slug %>" class="wow slideInRight article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+      <div class="article-meta">
+        <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
 
-      function showToc() {
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style", "visibility:visible");
-        show_toc_btn.setAttribute("style", "visibility:hidden");
-        if (window.innerWidth < 960) {
-          toc_article.style.maxHeight = '300px'
-        }
-      };
-
-      function showBtn() {
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style", "visibility:hidden");
-        show_toc_btn.setAttribute("style", "visibility:visible");
-      };
-    </script>
-    <% } %>
-      <article id="<%= post.layout %>-<%= post.slug %>" class="wow slideInRight article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
-        <div class="article-meta">
-          <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
-
-        </div>
-        <div class="article-inner">
-          <%- partial('post/gallery') %>
-            <% if (post.link || post.title){ %>
-              <header class="article-header">
-                <%- partial('post/title', {class_name: 'article-title'}) %>
-                  <div>
-                    <%- partial('post/category', {class_name: 'article-title'}) %>
-                      <% if (post.layout === "post"){ %>
-                        <%- partial('post/view') %>
-                          <% } %>
-                  </div>
-              </header>
-              <% } %>
-                <div class="article-entry" itemprop="articleBody">
-                  <% if (post.excerpt && index){ %>
-                    <%- post.excerpt %>
-                      <% if (theme.excerpt_link){ %>
-                        <p class="article-more-link">
-                          <a href="<%- url_for(post.path) %>#more">
-                            <%= theme.excerpt_link %>
-                          </a>
-                        </p>
+      </div>
+      <div class="article-inner">
+        <%- partial('post/gallery') %>
+          <% if (post.link || post.title){ %>
+            <header class="article-header">
+              <%- partial('post/title', {class_name: 'article-title'}) %>
+                <div>
+                  <%- partial('post/category', {class_name: 'article-title'}) %>
+                    <% if (post.layout === "post"){ %>
+                      <%- partial('post/view') %>
                         <% } %>
-                          <% } else { %>
-                            <%- post.content %>
-                              <% } %>
                 </div>
-                <footer class="article-footer">
-                  <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link">
-                    <%= __('share') %>
-                  </a>
-                  <% if (post.comments && config.disqus_shortname){ %>
-                    <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link">
-                      <%= __('comment') %>
-                    </a>
-                    <% } %>
-                      <%- partial('post/tag') %>
-                </footer>
-        </div>
-        <% if (!index){ %>
-          <%- partial('post/nav') %>
+            </header>
             <% } %>
-      </article>
+              <div class="article-entry" itemprop="articleBody">
+                <% if (post.excerpt && index){ %>
+                  <%- post.excerpt %>
+                    <% if (theme.excerpt_link){ %>
+                      <p class="article-more-link">
+                        <a href="<%- url_for(post.path) %>#more">
+                          <%= theme.excerpt_link %>
+                        </a>
+                      </p>
+                      <% } %>
+                        <% } else { %>
+                          <%- post.content %>
+                            <% } %>
+              </div>
+              <footer class="article-footer">
+                <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link">
+                  <%= __('share') %>
+                </a>
+                <% if (post.comments && config.disqus_shortname){ %>
+                  <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link">
+                    <%= __('comment') %>
+                  </a>
+                  <% } %>
+                    <%- partial('post/tag') %>
+              </footer>
+      </div>
+      <% if (!index){ %>
+        <%- partial('post/nav') %>
+          <% } %>
+    </article>
 
-      <% if (!index && post.comments && config.disqus_shortname){ %>
-        <section id="comments">
-          <div id="disqus_thread">
-            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <% if (!index && post.comments && config.disqus_shortname){ %>
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+      <% } %>
+
+
+        <% if (!index && post.comments && theme.livere){ %>
+          <div id="comments" class="comments">
           </div>
-        </section>
-        <% } %>
-
-
-          <% if (!index && post.comments && theme.livere){ %>
-            <div id="comments" class="comments">
-            </div>
-                <script>
-                if(document.querySelector('.article')){
-                  document.querySelector('.article').addEventListener('animationend', showComment);  
-                }
-                function showComment(){
-                const myTheme = {
-                    render(state, instance) {
-                      const container = document.createElement('div')
-                      container.lang = "zh-cn"
-                      container.className = 'gitment-container gitment-root-container'
-
-                      // your custom component
-                      container.appendChild(instance.renderSomething(state, instance))
-
-                      container.appendChild(instance.renderHeader(state, instance))
-                      container.appendChild(instance.renderEditor(state, instance))
-                      container.appendChild(instance.renderComments(state, instance))
-                      container.appendChild(instance.renderFooter(state, instance))
-                      return container
-                    },
-                    renderSomething(state, instance) {
-                      const container = document.createElement('div')
-                      container.lang = "zh-cn"
-                      if (state.user.login) {
-                        container.innerText = `欢迎, ${state.user.login}`
-                      }
-                      return container
-                    }
+          <script>
+              window.onload = function(){
+                if (document.querySelector('.article')) {
+                    document.querySelector('.article').addEventListener('animationend', showComment);
                   }
-                  var gitment = new Gitment({
-                    id: '<%- url_for(page.path) %>',
-                    owner: 'qq752177433',
-                    repo: 'mybolg',
-                    oauth: {
-                      client_id: '5985e00da9def2ede376',
-                      client_secret: '2a058f9f52edefbc688b11b76eec3442591baf94',
-                    },
-                    theme: myTheme,
-                  });
-                  gitment.render('comments'); //container为你要显示评论的id
+                  if (window.innerWidth > 960) {
+                    showToc()
+                  } else {
+                    showBtn()
+                  }
+              }
+            function showComment() {
+              const myTheme = {
+                render(state, instance) {
+                  const container = document.createElement('div')
+                  container.lang = "zh-cn"
+                  container.className = 'gitment-container gitment-root-container'
+
+                  // your custom component
+                  container.appendChild(instance.renderSomething(state, instance))
+
+                  container.appendChild(instance.renderHeader(state, instance))
+                  container.appendChild(instance.renderEditor(state, instance))
+                  container.appendChild(instance.renderComments(state, instance))
+                  container.appendChild(instance.renderFooter(state, instance))
+                  return container
+                },
+                renderSomething(state, instance) {
+                  const container = document.createElement('div')
+                  container.lang = "zh-cn"
+                  if (state.user.login) {
+                    container.innerText = `欢迎, ${state.user.login}`
+                  }
+                  return container
                 }
-                </script>
-                <% } %>
+              }
+              var gitment = new Gitment({
+                id: '<%- url_for(page.path) %>',
+                owner: 'qq752177433',
+                repo: 'mybolg',
+                oauth: {
+                  client_id: '5985e00da9def2ede376',
+                  client_secret: '2a058f9f52edefbc688b11b76eec3442591baf94',
+                },
+                theme: myTheme,
+              });
+              gitment.render('comments'); //container为你要显示评论的id
+            }
+            function showToc() {
+              var toc_article = document.getElementById("toc-article");
+              var show_toc_btn = document.getElementById("show-toc-btn");
+              toc_article.className = "toc-article wow slideInRight animated";
+              toc_article.setAttribute("style", "visibility:visible");
+              show_toc_btn.setAttribute("style", "visibility:hidden");
+              if (window.innerWidth < 960) {
+                toc_article.style.maxHeight = '300px';
+              }
+            };
+
+            function showBtn() {
+              var toc_article = document.getElementById("toc-article");
+              var show_toc_btn = document.getElementById("show-toc-btn");
+              toc_article.setAttribute("style", "visibility:hidden");
+              show_toc_btn.setAttribute("style", "visibility:visible");
+            };
+          </script>
+          <% } %>

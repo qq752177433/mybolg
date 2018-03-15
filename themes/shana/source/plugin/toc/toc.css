@@ -1,114 +1,118 @@
-#container .show-toc-btn,
-    #container .toc-article {
-      display: block
-    }
+#container .show-toc-btn, #container .toc-article {
+  visibility: hidden
+}
 
-    .toc-article {
-      z-index: 100;
-      max-width: 250px;
-      min-width: 150px;
-      max-height: 500px;
-      overflow-y: auto;
-      position: fixed;
-      right: 35px;
-      top: 129px;
-      color: #777;
-      text-shadow: 0 1px #fff;
-      background: rgba(255, 255, 255, 0.9);
-      -webkit-box-shadow: 0 -1px 4px #ccc inset;
-      box-shadow: 0 -1px 4px #ccc inset;
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 3px;
-    }
+.toc-article {
+  z-index: 100;
+  max-width: 250px;
+  min-width: 150px;
+  max-height: 500px;
+  overflow-y: auto;
+  position: fixed;
+  right: 35px;
+  top: 129px;
+  color: #777;
+  text-shadow: 0 1px #fff;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 0 -1px 4px #ccc inset;
+  box-shadow: 0 -1px 4px #ccc inset;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 3px;
+}
 
-    .toc-article .toc-close {
-      font-weight: 700;
-      font-size: 20px;
-      cursor: pointer;
-      float: right;
-      color: #ccc
-    }
+.toc-article .toc-close {
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  float: right;
+  color: #ccc
+}
 
-    .toc-article .toc-close:hover {
-      color: #000
-    }
+.toc-article .toc-close:hover {
+  color: #000
+}
 
-    .toc-article .toc {
-      font-size: 12px;
-      padding: 0;
-      line-height: 20px
-    }
+.toc-article .toc {
+  font-size: 12px;
+  padding: 0;
+  line-height: 20px
+}
 
-    .toc-article .toc .toc-number {
-      color: #333
-    }
+.toc-article .toc a {
+  text-decoration: none;
+}
 
-    .toc-article .toc .toc-text:hover {
-      text-decoration: underline;
-      color: #2a6496
-    }
+.toc-article .toc .toc-number {
+  color: #333
+}
 
-    .toc-article li {
-      list-style-type: none
-    }
-    .toc-article a {
-      color:#258fb8
-    }
-    .toc-article .toc-level-1 {
-      margin: 4px 0
-    }
+.toc-article .toc .toc-text:hover {
+  text-decoration: underline;
+  color: #2a6496
+}
 
-    .show-toc-btn {
-      display: none;
-      z-index: 10;
-      width: 30px;
-      min-height: 14px;
-      overflow: hidden;
-      padding: 4px 6px 8px 5px;
-      border: 1px solid #ddd;
-      border-right: none;
-      position: fixed;
-      right: 40px;
-      text-align: center;
-      background-color: #f9f9f9
-    }
+.toc-article li {
+  list-style-type: none
+}
 
-    .show-toc-btn .btn-bg {
-      margin-top: 2px;
-      display: block;
-      width: 16px;
-      height: 14px;
-      background: url(http://7xtawy.com1.z0.glb.clouddn.com/show.png) no-repeat;
-      -webkit-background-size: 100%;
-      -moz-background-size: 100%;
-      background-size: 100%
-    }
+.toc-article a {
+  color: #258fb8
+}
 
-    .show-toc-btn .btn-text {
-      color: #999;
-      font-size: 12px
-    }
+.toc-article .toc-level-1 {
+  margin: 4px 0
+}
 
-    .show-toc-btn:hover {
-      cursor: pointer
-    }
+.show-toc-btn {
+  visibility: hidden;
+  z-index: 10;
+  width: 30px;
+  min-height: 14px;
+  overflow: hidden;
+  padding: 4px 6px 8px 5px;
+  border: 1px solid #ddd;
+  border-right: none;
+  position: fixed;
+  right: 40px;
+  text-align: center;
+  background-color: #f9f9f9
+}
 
-    .show-toc-btn:hover .btn-bg {
-      background-position: 0 -16px
-    }
+.show-toc-btn .btn-bg {
+  margin-top: 2px;
+  display: block;
+  width: 16px;
+  height: 14px;
+  background: url(http://7xtawy.com1.z0.glb.clouddn.com/show.png) no-repeat;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%
+}
 
-    .show-toc-btn:hover .btn-text {
-      font-size: 12px;
-      color: #ea8010
-    }
+.show-toc-btn .btn-text {
+  color: #999;
+  font-size: 12px
+}
 
-    .toc-article li ol,
-    .toc-article li ul {
-      margin-left: 30px;
-    }
+.show-toc-btn:hover {
+  cursor: pointer
+}
 
-    .toc-article ol,
-    .toc-article ul {
-      margin: 10px 0;
-    }
+.show-toc-btn:hover .btn-bg {
+  background-position: 0 -16px
+}
+
+.show-toc-btn:hover .btn-text {
+  font-size: 12px;
+  color: #ea8010
+}
+
+.toc-article li ol, .toc-article li ul {
+  margin: 5px;
+  padding: 5px;
+}
+
+.toc-article ol, .toc-article ul {
+  margin: 10px 0;
+}
